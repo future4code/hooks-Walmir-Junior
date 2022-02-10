@@ -1,26 +1,26 @@
-//Exercício de interpretação de código.
+/*//Exercício de interpretação de código.
 
 /* 1 - Analise o programa abaixo e diga o que será impresso no console, 
 SEM EXECUTAR o programa.*/
 
-let a = 10;
-let b = 10;
+//let a = 10;
+//let b = 10;
 
-console.log(b);
+//console.log(b);
 
-b = 5; // A variável b passa a valer 5. 
-console.log(a, b);
+//b = 5; // A variável b passa a valer 5. 
+//console.log(a, b);
 
 /* Respposta: A saída do código é ===  10 10 5
 Pois a variável b por ser declarada com LET pode te seu valor alterado.*/
 
-let a = 10;
+/*let a = 10;
 let b = 20;
 c = a; // Variavel c recebe 10.
 b = c; // Variavel b recebe 10.
 a = b; // Variavel a recebe 10.
 
-console.log(a, b, c);
+console.log(a, b, c);*/
 
 /* Resposta: a saída do código é === 10 10 10 */
 
@@ -28,15 +28,15 @@ console.log(a, b, c);
 e sugira melhores nomes para as variáveis. */ 
 
 // let workHours = prompt("Quantas horas você trabalha por dia?");
-let p = prompt("Quantas horas você trabalha por dia?");
+/*let p = prompt("Quantas horas você trabalha por dia?");
 // let dailyReceived = prompt("Quanto você recebe por dia?");
 let t = prompt("Quanto você recebe por dia?");
 //alert(`Voce recebe ${workHours/dailyReceived} por hora`);
-alert(`Voce recebe ${t/p} por hora`);
+alert(`Voce recebe ${t/p} por hora`);*/
 /* *************************     ************************* */
 // Exercício de escrita de código.
 
-let nome;
+/*let nome;
 let idade;
 
 console.log(typeof nome, typeof idade);
@@ -80,7 +80,7 @@ b = aValorAntigo;
 
 // Depois de trocados, teremos o seguinte resultado:
 console.log("O novo valor de a é", a) // O novo valor de a é 25
-console.log("O novo valor de b é", b) // O novo valor de b é 10
+console.log("O novo valor de b é", b) // O novo valor de b é 10*/
 
 //DESAFIOS
 
