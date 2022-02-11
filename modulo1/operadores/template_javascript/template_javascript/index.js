@@ -90,31 +90,72 @@ impressas no console, SEM EXECUTAR o programa.*/
 // desafio 1.a
 
 //os nomes da variaveis estao pessimos kkkkkk
-let f = 77;
-let k = (f - 32) * (5/9) + 273.15;
+// let f = 77;
+// let k = (f - 32) * (5/9) + 273.15;
 
-console.log (`${f}°F em kelvin é ${k}°k `);
+// console.log (`${f}°F em kelvin é ${k}°k `);
 
 //1.b
 
-let c = 80;
-let cf = (c * (9/5)) + 32;
+// let c = 80;
+// let cf = (c * (9/5)) + 32;
 
-console.log(`${c}°c em F é ${cf}`);
+// console.log(`${c}°c em F é ${cf}`);
 
 //1.c 
-c = 30
-cf = (c * (9/5)) + 32;
-k = (cf - 32) * (5/9) + 273.15;
+// c = 30
+// cf = (c * (9/5)) + 32;
+// k = (cf - 32) * (5/9) + 273.15;
 
-console.log (`${c}°C é igual a ${cf}°F e a ${k}°K`);
+// console.log (`${c}°C é igual a ${cf}°F e a ${k}°K`);
 
 //1.d
 
-c = Number(prompt("informe uma escala em °C:"));
-cf = (c * (9/5)) + 32;
-k = (cf - 32) * (5/9) + 273.15;
+// c = Number(prompt("informe uma escala em °C:"));
+// cf = (c * (9/5)) + 32;
+// k = (cf - 32) * (5/9) + 273.15;
 
-console.log (`${c}°C é igual a ${cf}°F e a ${k}°K`);
+// console.log (`${c}°C é igual a ${cf}°F e a ${k}°K`);
 
 // ia fazer o resto dos disafios mas to esgotado kkkkkvou deixar pra dps!!!
+
+// DESAFIO 2
+//2.a
+// const custoKWh = 0.05;
+
+// const consumoCasa = 280;
+
+// console.log(`o consumo da residêcia é ${custoKWh * consumoCasa}`)
+
+// 2.b
+
+// const custoKWh = 0.05;
+
+// const consumoCasa = 280;
+
+// console.log(`o consumo da residêcia é ${custoKWh * consumoCasa} com o descnto de ${(custoKWh * consumoCasa) * 0.15}`);
+
+// DESAFIO 3
+
+const massaLB = 20;
+
+console.log(`${massaLB}lb é equivalente a ${massaLB / 2.205}kg`);
+
+const massaOZ = 10.5;
+
+console.log(`${massaOZ} é equivalnete a ${massaOZ / 35,274}kg`);
+
+const comprimentoMi = 100;
+
+console.log(`${comprimentoMi}mi equivalem a ${comprimentoMi * 1609}m`);
+
+const comprimentoPe = 50;
+
+console.log(`${comprimentoPe}ft equivalem a ${comprimentoMi / 3.281}m `);
+
+//parei o desafio por aq to esgotado !!
+
+
+
+
+
