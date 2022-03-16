@@ -1,0 +1,33 @@
+# RESOLVENDO PROBLEMAS#
+
+Não exsite formula mágica para resolver problemas, porem podemos fazer fazer algumas coisas para nos ajudar nesse processo. 
+
+1- Prestar atenção no enunciado.
+
+    ler com atenção e entender o que o enunciado pede, tentar não fazer nada além ou desnecessário, só aquilo que se vai precisar...
+
+2- Buscar palavras chaves.
+
+    dentro daquilo que você já leu, já indentificou o que deve ser feito, busque por palavras chaves que lhe dê dicas do que deve ser feito, atravez de algumas palavras podemos já perceber o que podemos utilizar futuramente no código, uma function, array, obejeto e 
+    etc ... 
+
+3- Pensar em entredas e saídas. 
+
+    Muitas vezes pensar no dado que voê quer receber e qual o resultado que você espera obter com ele facilita a compreensão do seu código e torna mais claro o que fazer para alcaçar tal resultado.
+
+4- Fazer um esquema visual. 
+
+    Escrever a estrutura do codigo (com um fluxograma por exemplo) pode facilitar a codificação, pois assim, já existe uma estrutura definida
+
+5- Criar um código feio.
+
+    A partir do fluxograma passe para seu editor de codigo sua ideia mesmo que imperfeita mal organizada ou com estruturas erradas, depois vá lendo e melhorando pouco a pouco
+
+ 6- Testar
+
+    teste o seu codigo feio, independente da aparencia do seu codigo o importante é ele estar funcionando e vc entendo o pq ele funciona... 
+
+7- Refatorar
+
+    com o código funcionando tente achar soluções melhores para resolver este problema, talvez com menos linhas de código.
+
