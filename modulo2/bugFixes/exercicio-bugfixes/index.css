@@ -65,14 +65,24 @@ div img {
   *  ESTILOS HOME 
   *
   **/
+.separa{
+    padding: 10%;
+    
+}
+
+.separa>ol {
+    list-style-type: none;
+}
 
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
 }
 
+
 #container-de-descricao>ol {
     padding: 15px 0px;
+    
 }
 
 #container-para-comprar {
@@ -88,7 +98,10 @@ div img {
 .botao-amarelo {
     display: block;
     margin: 0 auto;
+    text-decoration: none;
 }
+
+
 
 
 /**
