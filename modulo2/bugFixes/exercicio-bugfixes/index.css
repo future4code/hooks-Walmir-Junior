@@ -122,6 +122,10 @@ table {
     margin: 0 auto;
 }
 
+.tamanho {
+    width: 70px;
+}
+
 td button {
     background-color: #fadf63;
     width: 150px;
