@@ -65,14 +65,16 @@ div img {
   *  ESTILOS HOME 
   *
   **/
-.separa{
+.txtDescricao {
     padding: 10%;
     
 }
 
-.separa>ol {
+.txtDescricao>ol {
     list-style-type: none;
 }
+
+
 
 #container-de-descricao {
     background-color: #2274a5;
