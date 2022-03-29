@@ -117,6 +117,10 @@ div:last-child {
     text-align: center;
 }
 
+#borda {
+    border-width: 0px 0px 2px;
+}
+
 table {
     width: 60%;
     margin: 0 auto;
