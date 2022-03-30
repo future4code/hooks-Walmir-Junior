@@ -103,6 +103,7 @@ div img {
     display: block;
     margin: 0 auto;
     text-decoration: none;
+    margin-top: 100px;
 }
 
 
@@ -166,6 +167,7 @@ td button:hover {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin: 10% 45%;
 }
 
 #back-button:hover {
