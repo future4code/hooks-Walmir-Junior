@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: mediumvioletred;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#confeitaria{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#confeitaria>h1 {
+    margin-left: 30px;
+}
+main {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+nav {
+    background-color: #f2d0e0;
+    display: flex;
+    flex-direction: column;
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+
+}
+
+.nav {
+    display: flex;
+    padding: 10px;
+
+}
+
+.seta {
+    width: 15px
+}
+
+.links {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.icones {
+    width: 18px;
+    align-items: flex-start;
+}
+
+.bolos-bonito {
+    width: 300px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: mediumvioletred;
+    padding: 15px;
+}
+
