@@ -1,0 +1,169 @@
+/* INDEX */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*  cabeçalho */
+header{
+    background-color: #00BFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+header>h1 {
+    margin-right: 680px;
+}
+
+.port {
+    
+}
+
+button{
+    background-color: none;
+    border-radius: 20px;
+    padding: 4%;
+}
+
+button:hover{
+    background-color: purple;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+/* APRESENTAÇÃO */
+
+#apresentacao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#apresentacao>img{
+    border-radius: 70px;
+}
+
+.apresentacao {
+    padding: 10px;
+}
+
+/* SOBRE MIM */
+
+#sobre-mim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    background-color: mediumvioletred;
+    color: white;
+    padding: 5%;
+    
+}
+
+#sobre-mim>h2{
+    text-transform: uppercase;
+}
+
+#sobre-mim>p {
+    text-align: center;
+    padding: 8%;     
+}
+
+/* INSTITUIÇÃO  */
+
+
+#instituicao {
+    background-color: #F0FFFF;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    padding: 15px;
+    border-radius: 25px;
+    height: 50%;
+}
+
+#instituicao>h2{
+    text-transform: uppercase;
+}
+
+.alinha-links {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 4%;
+}
+
+.alinha-links>a {
+    text-decoration: none;
+    color: black;
+}
+
+.alinha-links>a:hover {
+    text-decoration: underline;
+    color: aqua;
+}
+
+/* HABILIDADES */
+
+.centraliza-habilidades{
+    text-align: center;
+    word-wrap: break-word;
+}
+
+
+#habilidades {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    padding: 5%;
+}
+
+
+.soft-skils{
+    background-color: #00BFFF;
+    grid-column: 1 / 1;
+    padding: 5%;
+}
+
+.hard-skils{
+    background-color: #00BFFF;
+    grid-column: 2 / 3;
+    padding: 5%
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+footer>h3{
+    margin-bottom: 6%;
+}
+
+.imgs {
+    width: 100px;
+}
+
+.imgs:hover {
+    opacity: 0.6;
+}
+
+
+
+
+
