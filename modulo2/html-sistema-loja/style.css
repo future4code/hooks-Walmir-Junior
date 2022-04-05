@@ -1,0 +1,114 @@
+/* Index */
+body {
+    background: linear-gradient(#fefefe 35%, #888888);
+}
+.caixa{
+    color: white;
+    text-shadow: #4b3661 2px 3px 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    background-image: url(./img/fundo_caixa.jpg);
+    padding: 4px;
+    border-radius: 25px;
+}
+
+p {
+    font-size: 20px;
+}
+
+
+.nav{
+    margin-right: 5%;
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav:hover {
+    color: #00008b;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.centralizaPeloAmorDeDeus {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
+    padding: 15%;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#descricao {
+    text-align: center;
+}
+
+
+footer {
+    background-color: darkgray;
+}
+.imagensIndex {
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* estoques */
+
+.titles {
+    font-size: 30px;
+}
+
+p {
+    font-size: 50px;
+    text-shadow: #4b3661 2px 3px 2px;
+}
+
+.controle {
+
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    padding: 10%;
+    font-size: 50px;
+}
+
+.igms {
+    width: 200px;
+
+}
+
+/* add produto */
+
+.form {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif
+}
+
+.label {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+
+input {
+
+    border-radius: 25px;
+}
+
+
+/* funcionarios*/
+
+.lista {
+    font-size: 50px;
+    text-align: center;
+}
+
+
+
+
