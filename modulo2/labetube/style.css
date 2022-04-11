@@ -1,0 +1,90 @@
+/* GLOBAL */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(rgb(44, 44, 117), black);
+}
+
+/* CABEÇALHO */
+header{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aqua;
+    padding: 1%;
+}
+
+header>h1>a {
+
+    text-decoration: none;
+    color: black;
+    margin-left: 10%;
+
+}
+
+header input {
+    margin-right: 10%;
+}
+
+/* CONTEÚDO */
+
+main {
+    margin-top: 5%;
+}
+
+main section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin-left: 3%;
+    row-gap: 3px;
+    column-gap: 1px;
+
+}
+
+section>div{
+    width: 100%;
+}
+
+.capas:hover {
+    opacity: 0.6;
+    width: 110%;
+}
+/* RODAPÉ*/
+
+footer {
+    text-align: center;
+    background-color: aqua;
+    padding: 1%;
+    text-transform: uppercase;
+}
+
+/* PAGINA 2 e 3*/
+
+#detalhes1 {
+    margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+#detalhes1 div {
+    color: white;
+    margin-left: 5%;
+    text-decoration: underline;
+}
+
+#detalhes1>video {
+    margin: 0 auto;
+    width: 90%;
+}
+
+
