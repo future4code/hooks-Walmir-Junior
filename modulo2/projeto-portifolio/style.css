@@ -1,0 +1,222 @@
+/* INDEX */
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+/* body {
+    background: linear-gradient(white 50%, mediumvioletred 50%);
+} */
+
+/*  cabeçalho */
+header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+header>h1 {
+    margin-right: 680px;
+}
+
+nav {
+    width: 200px;
+}
+
+.port {
+    text-decoration: none;
+    color: black;
+    font-size: 110%;
+}
+
+.port:hover {
+    color: purple;
+    
+
+}
+
+.button {
+    text-decoration: none;
+    padding: 4%;
+    color: black;
+    border-style: solid;
+    border-radius: 60%;
+    border-color: purple;
+    font-size: 110%;
+}
+
+.button:hover {
+    background-color: purple;
+    -webkit-transition: 1s;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+/* APRESENTAÇÃO */
+
+#apresentacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#apresentacao>img {
+    border-radius: 70px;
+}
+
+.apresentacao {
+    padding: 10px;
+}
+
+/* SOBRE MIM */
+
+#sobre-mim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6%;
+    background-color: mediumvioletred;
+    color: white;
+    padding: 5%;
+}
+
+#sobre-mim>h2 {
+    text-transform: uppercase;
+    font-size: 200%;
+}
+
+#sobre-mim>p {
+    font-size: 150%;
+    text-align: center;
+    padding: 8%;
+}
+
+/* INSTITUIÇÃO  */
+
+
+#instituicao {
+    background-color: #F0FFFF;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    padding: 15px;
+    border-radius: 25px;
+    height: 50%;
+    border-style: solid;
+    border-color: lightgrey;
+}
+
+#instituicao>h2 {
+    text-transform: uppercase;
+}
+
+.alinha-links {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 4%;
+}
+
+.alinha-links>a {
+    text-decoration: none;
+    color: black;
+}
+
+.alinha-links>a:hover {
+    text-decoration: underline;
+    color: aqua;
+}
+
+/* HABILIDADES */
+
+#habilidades {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5% 0 5%;
+    border-width: medium;
+
+}
+
+.ponto-lista {
+    list-style-type: none;
+}
+
+
+.soft-skils {
+    height: 100%;
+    padding: 5%;
+    background-color: rgb(255, 250, 244);
+    text-align: center;
+    border-width: thin;
+    border-color: lightgrey;
+    border-style: solid;
+    border-radius: 5%;
+
+
+}
+
+.soft-skils>h2 {
+    margin-bottom: 10%;
+}
+
+.soft-skils>ul>li {
+    margin-bottom: 1%;
+    margin-top: 4%;
+}
+
+.hard-skils {
+    padding: 5%;
+    height: 100%;
+    background-color: rgb(255, 250, 244);
+    text-align: center;
+    border-width: thin;
+    border-color: lightgrey;
+    border-style: solid;
+    border-radius: 5%;
+
+}
+
+.hard-skils>h2 {
+    margin-bottom: 10%;
+}
+
+.hard-skils>ul>li {
+    margin-bottom: 1%;
+    margin-top: 4%;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00BFFF;
+
+}
+
+footer>h3 {
+    margin-bottom: 6%;
+}
+
+.imgs {
+    width: 100px;
+}
+
+.imgs:hover {
+    opacity: 0.6;
+}
