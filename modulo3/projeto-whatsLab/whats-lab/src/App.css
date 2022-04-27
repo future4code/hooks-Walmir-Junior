@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.screen {
+  width: 50%;
+  height: 50%;
+  background-color: aqua;
+  border: 1px solid black;
+  justify-content: center ;
+  align-items: center;
+}
+
+.base-chat {
+  height: 100%;
+  width: 30%;
+  background-color: blue;
+}
+
+.background-chat {
+  height: 100%;
+  width: 100%;
+}
+
+.chat-area {
+  background-color: red;
+}
+
+.mensage-area {
+
+}
+
+.input-user {
+
+}
+
+input-mensage {
+
+}
