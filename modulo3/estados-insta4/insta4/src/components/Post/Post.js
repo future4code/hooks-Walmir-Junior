@@ -45,7 +45,15 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    arrayPost: [ 
+      {
+        nomeUsuario: '',
+        fotoUsuario: ,
+        fotoPost: ,
+
+      }
+    ]
   }
 
   onClickCurtida = () => {
