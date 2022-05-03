@@ -1,0 +1,91 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.base-chat {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 97vh;
+  background-color: transparent;
+  margin: 0 auto;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 20px;
+  background-color: #ccc;
+
+}
+
+.background-chat {
+  width: 35vw;
+  height: 80vh;
+  padding: 2%;
+  border: 3px solid black;
+  border-radius: 20px;
+  margin: 2% 0;
+  background-color: white;
+
+}
+
+.chat-area {
+  
+  color: black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 30%;
+
+}
+
+.mensage-area {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 5%;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #ccc;
+  border-radius: 20px;
+}
+
+.input-user {
+  display: flex;
+  align-items: flex-start;
+}
+
+.input-user input{
+
+}
+
+input-mensage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.input-mensage input {
+
+} 
+
+.box-chat {
+  text-align: center;
+  background-color: white
+
+} 
