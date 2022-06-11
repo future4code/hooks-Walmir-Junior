@@ -1,5 +1,6 @@
 import React from 'react'
-import CardProfile from './components/CardProfile/CardProfile'
+import CardProfile from './components/CardProfile/CardProfile';
+import MatchList from './components/MatchList/MatchList';
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div>
       Olá mundo
       <CardProfile/>
+      <MatchList/>
     </div>
   );
 }
