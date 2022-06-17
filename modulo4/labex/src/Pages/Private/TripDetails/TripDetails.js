@@ -2,7 +2,9 @@ import React from "react";
 
 const TripDetails = () => {
     return (
-        <></>
+        <>
+        TripDetails
+        </>
     )
 }
 
