@@ -2,7 +2,7 @@ import React from "react";
 import Home from '../../Pages/Home/Home'
 import AdminHome from '../../Pages/Private/AdminHome/AdminHome'
 import CreateTrip from '../../Pages/Private/CreateTrip/CreateTrip'
-import Login from '../../Pages/Private/Login/Login'
+import Login from '../../Pages/Public/Login/Login'
 import TripDetails from '../../Pages/Private/TripDetails/TripDetails'
 import ApplicationForm from '../../Pages/Public/ApplicationForm/ApplicationForm'
 import ListTrip from '../../Pages/Public/ListTrip/ListTrip'
