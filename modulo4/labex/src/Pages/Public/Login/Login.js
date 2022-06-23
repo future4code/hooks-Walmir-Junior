@@ -1,8 +1,11 @@
-import React, { useState} from "react";
-import {  back } from "../../../Coordinator/Coordinator";
+import React, { useState } from "react";
+import { back } from "../../../Coordinator/Coordinator";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../../constants";
+import logo from '../../../media/labex-logo.png'
+import space from '../../../media/space.png'
+import { Conteiner, ConteinerLogin, Logo } from "./styled";
 
 
 const Login = () => {
@@ -11,7 +14,7 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-   
+
 
     const makeLogin = () => {
 
@@ -21,41 +24,44 @@ const Login = () => {
         }
 
         axios
-        .post(`${BASE_URL}/login`, body)
-        .then((res) => {
-            localStorage.setItem("token", res.data.token)
-            navigate('/AdiminHome')
-        })
-        .catch((err) => {
-            alert('tu fez alguma merda')
-            console.log(err)
-        })
-        
+            .post(`${BASE_URL}/login`, body)
+            .then((res) => {
+                localStorage.setItem("token", res.data.token)
+                navigate('/AdiminHome')
+            })
+            .catch((err) => {
+                alert('tu fez alguma merda')
+                console.log(err)
+            })
+
     }
     return (
-        <>
-            <h1>Login</h1>
 
-            <button onClick={() => back(navigate)}>voltar</button>
+        <Conteiner img={space}>
 
-            <form>
-                <input
-                    placeholder="E-mail"
-                    type='email'
-                    value={email}
-                    onChange={(event) => { setEmail(event.target.value) }}
-                />
+            <Logo src={logo} alt="logo" />
+            <ConteinerLogin>
+                <button onClick={() => back(navigate)}>voltar</button>
 
-                <input
-                    placeholder="Senha"
-                    type='password'
-                    value={password}
-                    onChange={(event) => { setPassword(event.target.value) }}
-                />
-            </form>
+                <form>
+                    <input
+                        placeholder="E-mail"
+                        type='email'
+                        value={email}
+                        onChange={(event) => { setEmail(event.target.value) }}
+                    />
 
-            <button onClick={makeLogin}>Entrar</button>
-        </>
+                    <input
+                        placeholder="Senha"
+                        type='password'
+                        value={password}
+                        onChange={(event) => { setPassword(event.target.value) }}
+                    />
+                </form>
+
+                <button onClick={makeLogin}>Entrar</button>
+            </ConteinerLogin>
+        </Conteiner>
     )
 }
 

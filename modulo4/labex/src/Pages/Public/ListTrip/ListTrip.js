@@ -4,6 +4,8 @@ import CardTrips from "../../../components/CardTrips/CardTrips"
 import { BASE_URL } from "../../../constants"
 import { goToForm, back } from "../../../Coordinator/Coordinator"
 import useRequestData from "../../../hooks/useRequestData"
+import { ConteinerBtn, ConteinerListTrip, ConteinerTrips,  } from "./styled"
+import space from '../../../media/space.png'
 
 
 const ListTrip = (props) => {
@@ -18,12 +20,18 @@ const ListTrip = (props) => {
         />
     })
     return (
-        <>
-            <button onClick={() => back(navigate)}>voltar</button>
-            <button onClick={() => goToForm(navigate)}>Inscrever-se</button>
+        <ConteinerListTrip img={space}>
+            <ConteinerBtn>
+                <button onClick={() => back(navigate)}>voltar</button>
+                <h1>LISTA DE VIAGENS</h1>
+                <button onClick={() => goToForm(navigate)}>Inscrever-se</button>
+            </ConteinerBtn>
 
-            {renderTrips}
-        </>
+            <ConteinerTrips>
+                {renderTrips}
+            </ConteinerTrips>
+
+        </ConteinerListTrip>
     )
 }
 

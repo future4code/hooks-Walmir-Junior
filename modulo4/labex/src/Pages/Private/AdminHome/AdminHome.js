@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {useState} from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardTripsAdm from "../../../components/CardTripsAdm/CardTripsAdm";
 import { axiosConfig, BASE_URL } from "../../../constants";
@@ -13,26 +13,20 @@ const AdminHome = (props) => {
     const trips = useRequestData(`${BASE_URL}/trips`)
     usePrivatePage()
 
-    const [tripDetail, setTripDetail] = useState({})
 
-    const getTripDetail = (tripId) => {
-        
-        axios
-        .get(`${BASE_URL}/trip/${tripId}`, axiosConfig)
-        .then((res) => {
-            console.log(res.data)
-            navigate('/TripDetails')
-        })
-        .catch(err => console.log(err))
-    }
-    
-    const renderTripsAdm = trips && trips.map((trip) =>{
-        return <CardTripsAdm 
-        key={trip.id} 
-        trip={trip}
-        getTripDetail={getTripDetail}
+
+
+    const renderTripsAdm = trips && trips.map((trip) => {
+        return <CardTripsAdm
+            key={trip.id}
+            trip={trip}
         />
     })
+
+
+
+
+
     return (
         <>
             <h1>Boas vindas!</h1>

@@ -47,11 +47,14 @@ const CreateTrip = () => {
                     onChange={(event) => {setPlanet(event.target.value)}}
                     >
                         <option selected disabled>Escolha um planeta</option>
-                        <option>mercurio</option>
-                        <option>saturno</option>
-                        <option>jupiter</option>
-                        <option>netuno</option>
-                        <option>urano</option>
+                        <option>Mercurio</option>
+                        <option>Saturno</option>
+                        <option>Jupiter</option>
+                        <option>Netuno</option>
+                        <option>Urano</option>
+                        <option>Marte</option>
+                        <option>Plutão</option>
+                        <option>Venus</option>
                     </select>
 
                     <input 
