@@ -27,7 +27,7 @@ const CreateTrip = () => {
 
         axios
         .post(`${BASE_URL}/trips`, body, axiosConfig)
-        .then(res => alert('viagem criada!'))
+        .then(() => alert(`${name} criada com sucesso!`))
         .catch(err => console.log(err))
     } 
     return (
@@ -46,7 +46,7 @@ const CreateTrip = () => {
                     value={planet}
                     onChange={(event) => {setPlanet(event.target.value)}}
                     >
-                        <option selected disabled>Escolha um planeta</option>
+                        <option selected>Escolha um planeta</option>
                         <option>Mercurio</option>
                         <option>Saturno</option>
                         <option>Jupiter</option>

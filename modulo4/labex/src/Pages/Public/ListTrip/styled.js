@@ -6,6 +6,8 @@ export const ConteinerListTrip = styled.div`
     align-items: center;
     padding: 10px;
     margin: 0 auto;
+    min-height: 100vh;
+    min-width: 100vh;
 
     background-image: url(${props => props.img});
 `
@@ -24,12 +26,22 @@ export const ConteinerBtn = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 100vw;
-    height: 20vh;
+    min-width: 100vw;
+    min-height: 20vh;
     margin-bottom: 20px;
     font-family: sans-serif;
     background-color: transparent;
     color: #fed34f;
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        border-radius: 50px;
+        padding: 4%;
+      }
+    }
     
     button {
     background-color: #0a6bff;
@@ -76,6 +88,7 @@ export const ConteinerTrips = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    min-width: 70%;
+    
    
 `
