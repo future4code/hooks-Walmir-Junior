@@ -1,40 +1,39 @@
 import axios from "axios"
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import {axiosConfig, BASE_URL} from '../../constants/index'
-// import useRequestData from "../../hooks/useRequestData"
+import { axiosConfig, BASE_URL } from '../../constants/index'
+import { Conteiner, ConteinerBtn, ConteinerTrip } from "./styled"
+import space from "../../media/space.png"
 
 
 
 const CardTripsAdm = (props) => {
-   const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const deleteTrip = (id) => {
-        
+
 
         axios
-        .delete(`${BASE_URL}/trips/${id}`, axiosConfig)
-        .then(() => {
-            alert(`${props.trip.name}, deletada!`)
-        //    useRequestData(`${BASE_URL}/trips`)
-        })
-        .catch(err => console.log(err))
+            .delete(`${BASE_URL}/trips/${id}`, axiosConfig)
+            .then(() => {
+                alert(`${props.trip.name}, deletada!`)
+                
+            })
+            .catch(err => console.log(err))
     }
-    return(
-        <div>
-            <h3>{props.trip.name}</h3>
-            <p>{props.trip.description}</p>
-            <h4>{props.trip.planet}</h4>
-            <p>{props.trip.date}</p>
+    return (
+        <Conteiner imh={space}  onClick={() => { navigate(`/tripDetails/${props.trip.id}`) }}>
+            <ConteinerTrip>
+                <h3>{props.trip.name}</h3>
+            </ConteinerTrip>
 
-            <button onClick={() => deleteTrip(props.trip.id)}>delete</button>
-            <button 
-            onClick={() => {navigate(`/tripDetails/${props.trip.id}`)}}
-            >
-            detalhes
-            </button>
-            <hr />
-        </div>
+            <ConteinerBtn>
+
+                <button onClick={() => deleteTrip(props.trip.id)}>delete</button>
+
+            </ConteinerBtn>
+
+        </Conteiner>
     )
 }
 

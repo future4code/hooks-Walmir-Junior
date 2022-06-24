@@ -26,7 +26,6 @@ const TripDetails = () => {
         <>
         <button onClick={() => back(navigate)}>Voltar</button>
         <h1>{tripDetails.name}</h1>
-       
         </>
     )
 }

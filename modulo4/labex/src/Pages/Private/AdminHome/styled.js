@@ -1,49 +1,32 @@
 import styled from 'styled-components'
 
-export const ConteinerListTrip = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    margin: 0 auto;
+export const Conteiner = styled.div`
     min-height: 100vh;
     min-width: 100vw;
-
     background-image: url(${props => props.img});
-`
-
-export const Stars = styled.div`
-    position: absolute;
-    top: 100px;
-    left: -700px;
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    box-shadow: 970px 909px #fff;
-
-`
-export const ConteinerBtn = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    min-width: 100vw;
-    min-height: 20vh;
-    margin-bottom: 20px;
-    font-family: sans-serif;
-    background-color: transparent;
-    color: #fed34f;
-
-    div {
-      display: flex;
-      flex-direction: column;
-
-      input {
-        border-radius: 50px;
-        padding: 4%;
-      }
-    }
     
-    button {
+`
+
+export const Painel = styled.div`
+     color: #fed34f;
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     
+     h1{
+         margin-top: 5%;
+         font-family: Arial, Helvetica, sans-serif;
+     }
+
+`
+export const PainelBtn = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+margin-top: 6%;
+margin-bottom: 5%;
+
+button {
     background-color: #0a6bff;
     border-radius: 4px;
     border: 0;
@@ -83,12 +66,12 @@ export const ConteinerBtn = styled.div`
   }
 }
 `
-export const ConteinerTrips = styled.div`
+
+export const CaixaCards = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 70%;
-    
+  
    
 `

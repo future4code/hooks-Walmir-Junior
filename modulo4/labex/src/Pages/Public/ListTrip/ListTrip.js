@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import CardTrips from "../../../components/CardTrips/CardTrips"
 import { BASE_URL } from "../../../constants"
-import { goToForm, back } from "../../../Coordinator/Coordinator"
+import { back } from "../../../Coordinator/Coordinator"
 import useRequestData from "../../../hooks/useRequestData"
 import { ConteinerBtn, ConteinerListTrip, ConteinerTrips, } from "./styled"
 import space from '../../../media/space.png'
@@ -38,7 +38,7 @@ const ListTrip = (props) => {
                     />
                     
                 </div>
-                <button onClick={() => goToForm(navigate)}>Inscrever-se</button>
+                
             </ConteinerBtn>
 
             <ConteinerTrips>

@@ -2,7 +2,9 @@ import axios from "axios"
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { back } from "../../../Coordinator/Coordinator"
-import {BASE_URL, axiosConfig} from '../../../constants/index'
+import { BASE_URL, axiosConfig } from '../../../constants/index'
+import space from "../../../media/space.png"
+import { Conteiner, ConteinerForm, Form } from "../../../Pages/Public/ApplicationForm/styled"
 
 
 const CreateTrip = () => {
@@ -26,25 +28,27 @@ const CreateTrip = () => {
         }
 
         axios
-        .post(`${BASE_URL}/trips`, body, axiosConfig)
-        .then(() => alert(`${name} criada com sucesso!`))
-        .catch(err => console.log(err))
-    } 
+            .post(`${BASE_URL}/trips`, body, axiosConfig)
+            .then(() => alert(`${name} criada com sucesso!`))
+            .catch(err => console.log(err))
+    }
     return (
-        <>
-            <div>
-                <h1> Criar viagem</h1>
 
-                <form>
-                    <input 
-                    placeholder="Nome da viagem"
-                    value={name}
-                    onChange={(event) => {setName(event.target.value)}} 
+        <Conteiner img={space}>
+            <h1> Criar viagem</h1>
+            <ConteinerForm>
+
+                <Form>
+                    <button onClick={() => back(navigate)}>Voltar</button>
+                    <input
+                        placeholder="Nome da viagem"
+                        value={name}
+                        onChange={(event) => { setName(event.target.value) }}
                     />
 
                     <select
-                    value={planet}
-                    onChange={(event) => {setPlanet(event.target.value)}}
+                        value={planet}
+                        onChange={(event) => { setPlanet(event.target.value) }}
                     >
                         <option selected>Escolha um planeta</option>
                         <option>Mercurio</option>
@@ -57,37 +61,32 @@ const CreateTrip = () => {
                         <option>Venus</option>
                     </select>
 
-                    <input 
-                    placeholder="dd/mm/aaaa" 
-                    type="date"
-                    value={date}
-                    onChange={(event) => {setDate(event.target.value)}}
+                    <input
+                        placeholder="dd/mm/aaaa"
+                        type="date"
+                        value={date}
+                        onChange={(event) => { setDate(event.target.value) }}
                     />
-                    <input 
-                    placeholder="Descrição" 
-                    value={description}
-                    onChange={(event) => {setDescripition(event.target.value)}}
+                    <input
+                        placeholder="Descrição"
+                        value={description}
+                        onChange={(event) => { setDescripition(event.target.value) }}
                     />
-                    <input 
-                    placeholder="Duração de dias"
-                    value={duration}
-                    onChange={(event) => {setDuration(event.target.value)}}
+                    <input
+                        placeholder="Duração de dias"
+                        value={duration}
+                        onChange={(event) => { setDuration(event.target.value) }}
                     />
-                </form>
 
-                <div>
-                    <button onClick={() => back(navigate)}>Voltar</button>
-
-                    <button 
-                    type="submit" 
-                    onClick={addNewTrip}
+                    <button
+                        type="submit"
+                        onClick={addNewTrip}
                     >
-                    Criar
+                        Criar
                     </button>
-                </div>
-
-            </div>
-        </>
+                </Form>
+            </ConteinerForm>
+        </Conteiner>
     )
 }
 

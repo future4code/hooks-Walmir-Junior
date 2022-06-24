@@ -1,11 +1,12 @@
-import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardTripsAdm from "../../../components/CardTripsAdm/CardTripsAdm";
-import { axiosConfig, BASE_URL } from "../../../constants";
+import { BASE_URL } from "../../../constants";
 import { back, goToCreate, goToHome } from "../../../Coordinator/Coordinator";
 import usePrivatePage from "../../../hooks/usePrivatePage";
 import useRequestData from "../../../hooks/useRequestData"
+import space from "../../../media/space.png"
+import { CaixaCards, Conteiner, Painel, PainelBtn } from "./styled";
 
 
 const AdminHome = (props) => {
@@ -28,16 +29,20 @@ const AdminHome = (props) => {
 
 
     return (
-        <>
-            <h1>Boas vindas!</h1>
-            <h2>Painel Administrativo</h2>
+        <Conteiner img={space}>
+            <Painel>
+                <h1>Painel Administrativo</h1>
 
-            <button onClick={() => goToHome(navigate)}>Voltar</button>
-            <button onClick={() => goToCreate(navigate)}>Criar viagem</button>
-            <button onClick={() => back(navigate)}>logout</button>
-
-            {renderTripsAdm}
-        </>
+                <PainelBtn>
+                    <button onClick={() => goToHome(navigate)}>Voltar</button>
+                    <button onClick={() => goToCreate(navigate)}>Criar viagem</button>
+                    <button onClick={() => back(navigate)}>logout</button>
+                </PainelBtn>
+            </Painel>
+            <CaixaCards>
+                {renderTripsAdm}
+            </CaixaCards>
+        </Conteiner>
     )
 }
 
