@@ -5,7 +5,7 @@ import { v4 as uuidV4 } from 'uuid';
 
 
 type ToDo = {
-    userid:string,
+    userId:any,
     id:string
     title: string,
     isCompleted:boolean
@@ -13,7 +13,7 @@ type ToDo = {
 
 const toDos:ToDo[] = [
     {
-        userid: uuidV4(),
+        userId: uuidV4(),
         id: uuidV4(),
         title: "Arrumar um trampo de back-end",
         isCompleted: false
@@ -21,14 +21,14 @@ const toDos:ToDo[] = [
 
     },
     {
-        userid: uuidV4(),
+        userId: uuidV4(),
         id: uuidV4(),
         title: "Arrumar um trampo de front-end",
         isCompleted: true
         
     },
     {
-        userid: uuidV4(),
+        userId: uuidV4(),
         id: uuidV4(),
         title: "Arrumar um trampo de full stack",
         isCompleted: false    
@@ -42,35 +42,90 @@ app.use(cors());
 
 
 app.get("/ping", (req, res) => {
-    res.send("pong");
+  res.send("Pong!")
 })
 
-app.get("/toDo", (req:Request, res:Response) => {
-    const statusTrue = toDos.filter((toDo) => {
-        return toDo.isCompleted === true;   
-    })
+// Exercício 4
+app.get("/todos/completed/:isCompleted", (req, res) => {
+  let isCompleted: any = req.params.isCompleted
 
-    res.send(statusTrue);
-})
+  if (isCompleted === "true") {
+    isCompleted = true
+  } else if (isCompleted === "false") {
+    isCompleted = false
+  } else {
+    res.send("Path param da tarefa deve ser 'true' ou 'false'")
+  }
 
-app.post("/createToDo", (req: Request, res:Response ) => {
-    const title = req.body.title;
+  const result = []
 
-    const newToDo:ToDo = {
-        userid: uuidV4(),
-        id: uuidV4(),
-        title,
-        isCompleted:false
+  for (let i = 0; i < toDos.length; i++) {
+    if (toDos[i].isCompleted === isCompleted) {
+      result.push(toDos[i])
     }
-    toDos.push(newToDo);
+  }
 
-    res.send(toDos);
+  res.send(result)
 })
 
-app.put("/edit",(req: Request, res:Response ) => {
-    
+// Exercício 5
+app.post("/todos", (req, res) => {
+  const userId = req.body.userId
+  const title = req.body.title
+
+  const newTodo: ToDo = {
+    userId,
+    id: uuidV4(),
+    title,
+    isCompleted: false
+  }
+
+  toDos.push(newTodo)
+
+  res.send(toDos)
 })
 
+// Exercício 6
+app.put("/todos/:id/completed", (req, res) => {
+
+  const id = req.params.id
+
+  for (let todo of toDos) {
+    if (todo.id === id) {
+      todo.isCompleted = !todo.isCompleted
+    }
+  }
+
+  res.send(toDos)
+})
+
+// Exercício 7
+app.delete("/todos/:id", (req, res) => {
+
+  const id = req.params.id
+
+  for (let i = 0; i < toDos.length; i++) {
+    if (toDos[i].id === id) {
+        toDos.splice(i, 1)
+    }
+  }
+
+  res.send(toDos)
+})
+
+app.get("/users/:userId/todos", (req, res) => {
+  const userId = Number(req.params.userId)
+
+  const result = []
+
+  for (let todo of toDos) {
+    if (todo.userId === userId) {
+      result.push(todo)
+    }
+  }
+
+  res.send(result)
+})
 
 
 

@@ -8,19 +8,19 @@ const cors_1 = __importDefault(require("cors"));
 const uuid_1 = require("uuid");
 const toDos = [
     {
-        userid: (0, uuid_1.v4)(),
+        userId: (0, uuid_1.v4)(),
         id: (0, uuid_1.v4)(),
         title: "Arrumar um trampo de back-end",
         isCompleted: false
     },
     {
-        userid: (0, uuid_1.v4)(),
+        userId: (0, uuid_1.v4)(),
         id: (0, uuid_1.v4)(),
         title: "Arrumar um trampo de front-end",
         isCompleted: true
     },
     {
-        userid: (0, uuid_1.v4)(),
+        userId: (0, uuid_1.v4)(),
         id: (0, uuid_1.v4)(),
         title: "Arrumar um trampo de full stack",
         isCompleted: false
@@ -31,24 +31,70 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.get("/ping", (req, res) => {
-    res.send("pong");
+    res.send("Pong!");
 });
-app.get("/toDo", (req, res) => {
-    const statusTrue = toDos.filter((toDo) => {
-        return toDo.isCompleted === true;
-    });
-    res.send(statusTrue);
+// Exercício 4
+app.get("/todos/completed/:isCompleted", (req, res) => {
+    let isCompleted = req.params.isCompleted;
+    if (isCompleted === "true") {
+        isCompleted = true;
+    }
+    else if (isCompleted === "false") {
+        isCompleted = false;
+    }
+    else {
+        res.send("Path param da tarefa deve ser 'true' ou 'false'");
+    }
+    const result = [];
+    for (let i = 0; i < toDos.length; i++) {
+        if (toDos[i].isCompleted === isCompleted) {
+            result.push(toDos[i]);
+        }
+    }
+    res.send(result);
 });
-app.post("/createToDo", (req, res) => {
+// Exercício 5
+app.post("/todos", (req, res) => {
+    const userId = req.body.userId;
     const title = req.body.title;
-    const newToDo = {
-        userid: (0, uuid_1.v4)(),
+    const newTodo = {
+        userId,
         id: (0, uuid_1.v4)(),
         title,
         isCompleted: false
     };
-    toDos.push(newToDo);
+    toDos.push(newTodo);
     res.send(toDos);
+});
+// Exercício 6
+app.put("/todos/:id/completed", (req, res) => {
+    const id = req.params.id;
+    for (let todo of toDos) {
+        if (todo.id === id) {
+            todo.isCompleted = !todo.isCompleted;
+        }
+    }
+    res.send(toDos);
+});
+// Exercício 7
+app.delete("/todos/:id", (req, res) => {
+    const id = req.params.id;
+    for (let i = 0; i < toDos.length; i++) {
+        if (toDos[i].id === id) {
+            toDos.splice(i, 1);
+        }
+    }
+    res.send(toDos);
+});
+app.get("/users/:userId/todos", (req, res) => {
+    const userId = Number(req.params.userId);
+    const result = [];
+    for (let todo of toDos) {
+        if (todo.userId === userId) {
+            result.push(todo);
+        }
+    }
+    res.send(result);
 });
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
