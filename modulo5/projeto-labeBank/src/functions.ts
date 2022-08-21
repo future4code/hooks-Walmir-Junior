@@ -53,6 +53,19 @@ export const validateCpf = (cpf:string) :boolean =>{
     return true
 }
 
+export const checkIsOfAge = (birthDate:string) :boolean => {
+    
+   const yearBirth= Number(birthDate.split(/[^\d]+/g).pop());
+   const currentYear = new Date().getFullYear();
+   const ofAge = 18;
+   const age = currentYear - yearBirth;
+   
+   if(age < ofAge) return false
+
+
+   return true
+}
+
 
 
 
