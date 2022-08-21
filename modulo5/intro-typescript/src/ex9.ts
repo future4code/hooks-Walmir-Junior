@@ -7,10 +7,10 @@ const isApproved  = (age:number, schooling:string, hours:number , rotation: stri
     let validationHours2 = hours >= 20 && rotation == "noturno" ? true : false
 
     if(
-        isLegalAge === true &&
-        completeHighSchool  === true &&
-        validationHours  === true ||
-        validationHours2  === true
+        isLegalAge  &&
+        completeHighSchool   &&
+        validationHours  ||
+        validationHours2  
     ){
         approved =true
     }else{
@@ -21,4 +21,4 @@ const isApproved  = (age:number, schooling:string, hours:number , rotation: stri
     
 } 
 
-console.log(isApproved(1000, "sim", 40, "integral"))
+console.log(isApproved(10, "sim", 40, "integral"))
