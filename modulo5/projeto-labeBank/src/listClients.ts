@@ -8,7 +8,7 @@ export const clients:Client[] = [
         name:"Pétala da Costa Figueiredo",
         cpf: "111.222.333-45",
         birthDate:"22/08/2021",
-        balance :1000,
+        balance : 1000,
         debit: []
     },
     {
@@ -17,7 +17,7 @@ export const clients:Client[] = [
         name:"Thaynara Amélia Santos da Costa",
         cpf: "222.222.333-45",
         birthDate:"21/12/2000",
-        balance :0,
+        balance :  0,
         debit: []
     }
 ] 

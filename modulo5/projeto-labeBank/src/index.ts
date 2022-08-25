@@ -8,10 +8,43 @@ import { validateCpf, checkIsOfAge } from './functions';
 const app = express();
 app.use(express.json());
 app.use(cors());
+let statusCode = 400 
 
 
-app.get("/getClients", (req:Request, res:Response) =>{
+app.get("/clients", (req:Request, res:Response) =>{
     res.send(clients);
+})
+
+app.get("/clients/:name/Balance",  (req:Request, res:Response) =>{
+    const name = req.params.name
+    const cpf = req.query.cpf;
+
+    try {
+
+        if(!name || !cpf) {
+            statusCode = 422
+            throw new Error("passe todos os parâmetros")
+        }
+
+        const client:Client | undefined = clients.find((client: Client) => {
+            console.log(client)
+            client.cpf === cpf &&
+            client.name.toUpperCase().includes(name.toUpperCase())
+
+            return client
+        })
+
+        if(!client) {
+            console.log(client)
+            statusCode = 404
+            throw new Error("não encontrado")
+        }
+
+        res.send(client)
+
+    } catch (error:any) {
+        res.status(statusCode).send(error.message)
+    }
 })
 
 app.post("/createAccount", (req:Request, res:Response) => {
@@ -25,10 +58,10 @@ app.post("/createAccount", (req:Request, res:Response) => {
     
     try{
 
-        if(!name || !cpf || !birthDate) res.status(400).send("Passe todos os parâmrtros");
-        if(isRegistered) res.status(400).send("CPF já cadastrado");
-        if(isValid === false) res.status(400).send("CPF não é valido");
-        if(isOfAge === false) res.status(400).send("Você precisa ter a idade minina");
+        if(!name || !cpf || !birthDate) throw new Error("Passe todos os parâmrtros");
+        if(isRegistered)  throw new Error("CPF já cadastrado");
+        if(isValid === false)  throw new Error("CPF não é valido");
+        if(isOfAge === false)  throw new Error("Você precisa ter a idade minina");
 
     
         const newClient:Client = {
@@ -46,13 +79,14 @@ app.post("/createAccount", (req:Request, res:Response) => {
 
         res.send(newClient);
 
-    } catch (error) {
+    } catch (error:any) {
 
-        res.status(400).send(error);
+        res.status(statusCode).send(error.message)
         
     }
     
 } )
+
 
 
 
