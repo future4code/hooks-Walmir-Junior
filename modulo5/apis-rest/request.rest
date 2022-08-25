@@ -1,0 +1,27 @@
+//Para requisições com body:
+//Content-Type: application/json
+
+//Para requisições com headers
+//Authorization: "token"
+
+
+###
+GET http://localhost:3003/users
+
+###
+GET http://localhost:3003/users/type?type=normal
+
+###
+GET http://localhost:3003/users/find?queryUser=bob
+
+###
+POST http://localhost:3003/users/createNewUser
+Content-Type: application/json
+
+{
+    "id": "7",
+    "name": "Walmir",
+    "email": "walmir@labenu.com",
+    "type": "NORMAL",
+    "age": 21
+}
