@@ -1,0 +1,21 @@
+//Para requisições com body:
+//Content-Type: application/json
+
+//Para requisições com headers
+//Authorization: "token"
+
+###
+GET http://localhost:3003/clients
+
+###
+GET http://localhost:3003/clients/Thaynara/Balance?cpf=222.222.333-45
+
+###
+POST http://localhost:3003/createAccount
+Content-Type: application/json
+
+{
+    "name": "walmir de Souza Figueiredo Junior",
+    "cpf": "174.098.347-57",
+    "birthDate": "30/04/2001"
+}
