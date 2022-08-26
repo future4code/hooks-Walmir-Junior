@@ -28,10 +28,9 @@ app.get("/clients/:name/Balance",  (req:Request, res:Response) =>{
 
         const client:Client | undefined = clients.find((client: Client) => {
             console.log(client)
-            client.cpf === cpf &&
+            return client.cpf === cpf &&
             client.name.toUpperCase().includes(name.toUpperCase())
 
-            return client
         })
 
         if(!client) {
@@ -40,7 +39,7 @@ app.get("/clients/:name/Balance",  (req:Request, res:Response) =>{
             throw new Error("não encontrado")
         }
 
-        res.send(client)
+        res.send(`R$ ${client.balance}`)
 
     } catch (error:any) {
         res.status(statusCode).send(error.message)
@@ -87,11 +86,7 @@ app.post("/createAccount", (req:Request, res:Response) => {
     
 } )
 
-
-
-
-
-
+app.put("/")
 
 
 

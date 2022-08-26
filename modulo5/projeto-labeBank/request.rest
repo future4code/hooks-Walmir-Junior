@@ -8,7 +8,7 @@
 GET http://localhost:3003/clients
 
 ###
-GET http://localhost:3003/clients/:name/Balance?cpf=174.098.347-57
+GET http://localhost:3003/clients/Thaynara/Balance?cpf=222.222.333-45
 
 ###
 POST http://localhost:3003/createAccount
