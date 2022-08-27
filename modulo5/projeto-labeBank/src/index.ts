@@ -138,8 +138,8 @@ app.put("/clients/:id/payment", (req: Request, res: Response) => {
         }
 
         // procura o id no array
-        const client = clients.find((client) => client.accountId === id)
-        const debit = Number(value)
+        const client = clients.find((client) => client.accountId === id);
+        const debit = Number(value);
 
         // Verifica se o cliente fo encontrado
         if (!client) {
@@ -162,13 +162,15 @@ app.put("/clients/:id/payment", (req: Request, res: Response) => {
                 throw new Error("A data não pode ser menor que a data atual");
 
             case RETURNS.BIGGER:
-                client.balance -= debit 
-                return client.debit.push(debit)
+                client.balance -= debit;
+                client.debit.push(debit);
+                break;
 
 
             case RETURNS.EQUAL:
-                client.balance -= debit 
-                return client.debit.push(debit)
+                client.balance -= debit;
+                client.debit.push(debit);
+                break;
 
             default:
                 break;
