@@ -224,8 +224,6 @@ app.put("/clienst/transfer", (req: Request, res: Response) => {
     }
 })
 
-
-
 app.listen(3003, () => {
     console.log('online in http://localhost:3003')
 })
