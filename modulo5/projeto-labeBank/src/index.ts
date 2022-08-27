@@ -11,33 +11,32 @@ app.use(express.json());
 app.use(cors());
 let statusCode = 400
 
-
+// Retorna todos os clientes
 app.get("/clients", (req: Request, res: Response) => {
     res.send(clients);
 })
 
+//Retorna saldo do cliente 
 app.get("/clients/:name/Balance", (req: Request, res: Response) => {
-    const name = req.params.name
+    const name = req.params.name;
     const cpf = req.query.cpf;
 
     try {
 
         if (!name || !cpf) {
-            statusCode = 422
-            throw new Error("passe todos os parâmetros")
+            statusCode = 422;
+            throw new Error("passe todos os parâmetros");
         }
 
         const client: Client | undefined = clients.find((client: Client) => {
-            console.log(client)
             return client.cpf === cpf &&
-                client.name.toUpperCase().includes(name.toUpperCase())
+                client.name.toUpperCase().includes(name.toUpperCase());
 
         })
 
         if (!client) {
-            console.log(client)
-            statusCode = 404
-            throw new Error("não encontrado")
+            statusCode = 404;
+            throw new Error("não encontrado");
         }
 
         res.send(`R$ ${client.balance}`)
@@ -47,6 +46,7 @@ app.get("/clients/:name/Balance", (req: Request, res: Response) => {
     }
 })
 
+// Retorna um novo cliente
 app.post("/createAccount", (req: Request, res: Response) => {
 
     const name = req.body.name;
@@ -90,6 +90,7 @@ app.post("/createAccount", (req: Request, res: Response) => {
 
 })
 
+// Retorna saldo atualizado
 app.put("/clients/addBalance", (req: Request, res: Response) => {
     const { name, cpf, value } = req.body;
 
@@ -119,6 +120,7 @@ app.put("/clients/addBalance", (req: Request, res: Response) => {
     }
 })
 
+// Retorna pagamentos feitos
 app.put("/clients/:id/payment", (req: Request, res: Response) => {
     const { value, description, date } = req.body;
     const id = req.params.id;
@@ -184,6 +186,43 @@ app.put("/clients/:id/payment", (req: Request, res: Response) => {
 })
 
 
+app.put("/clienst/transfer", (req: Request, res: Response) => {
+
+    const {senderName, senderCpf, recipientName, recipientCpf, value} = req.body; 
+   
+
+    try {
+
+        if( !senderCpf || !senderName || !recipientCpf || !recipientName || !value){
+            statusCode = 422;
+            throw new Error("Um ou mais parâmetros faltando");
+        }
+
+        const  senderClient = clients.find((client) => senderCpf === client.cpf);
+        const recipientClient = clients.find((client) => recipientCpf === client.cpf);
+        
+        if(!senderClient || !recipientClient ){
+            statusCode = 404;
+            throw new Error("cliente não encontrado")
+        }
+
+        if( Number(value) > senderClient.balance){
+            statusCode = 400;
+            throw new Error("saldo insuficiente");
+        }
+
+        senderClient.balance -= value
+        senderClient.transferSent.push(value)
+        
+        recipientClient.balance += value;
+        recipientClient.receivedTransfer.push(value);
+
+        res.send("trasferêcia realizada com sucesso!")
+
+    } catch (error:any) {
+        res.status(statusCode).send(error.message)
+    }
+})
 
 
 

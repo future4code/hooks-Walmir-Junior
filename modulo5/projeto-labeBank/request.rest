@@ -39,3 +39,16 @@ Content-Type: application/json
     "description": "boleto",
     "date": "30/04/2001"
 }
+
+
+###
+PUT http://localhost:3003/clienst/transfer
+Content-Type: application/json
+
+{
+    "senderName": "pétala",
+    "senderCpf": "111.222.333-45",
+    "recipientName": "thaynara",
+    "recipientCpf": "222.222.333-45",
+    "value": 30
+}
