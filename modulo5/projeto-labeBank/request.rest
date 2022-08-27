@@ -19,3 +19,23 @@ Content-Type: application/json
     "cpf": "174.098.347-57",
     "birthDate": "30/04/2001"
 }
+
+###
+PUT http://localhost:3003/clients/addBalance
+Content-Type: application/json
+
+{
+    "name": "Thaynara",
+    "cpf": "222.222.333-45",
+    "value": 400
+}
+
+###
+PUT http://localhost:3003/clients/222.222.333-45/payment
+Content-Type: application/json
+
+{
+    "value": 40,
+    "description": "boleto",
+    "date": "30/04/2001"
+}

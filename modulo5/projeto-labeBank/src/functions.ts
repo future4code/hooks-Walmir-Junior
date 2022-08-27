@@ -1,3 +1,5 @@
+import { RETURNS } from "./enum";
+// Validar cpf!
 export const validateCpf = (cpf:string) :boolean =>{
     
     cpf = cpf.replace(/[^\d]+/g , "")
@@ -53,6 +55,9 @@ export const validateCpf = (cpf:string) :boolean =>{
     return true
 }
 
+
+// Checar se é maior de idade
+
 export const checkIsOfAge = (birthDate:string) :boolean => {
     
    const yearBirth= Number(birthDate.split(/[^\d]+/g).pop());
@@ -66,6 +71,17 @@ export const checkIsOfAge = (birthDate:string) :boolean => {
    return true
 }
 
+// comparar datas 
+ export const compereDates = (date:string | undefined) :string | undefined => {
+
+    const currentDate = new Date()
+    const today = currentDate.toLocaleDateString();
+
+    if(!date) return undefined
+    if(date < today) return RETURNS.LESS
+    if(date > today) return  RETURNS.BIGGER
+    if(today === date) return RETURNS.EQUAL
+ }
 
 
 

@@ -9,7 +9,9 @@ export const clients:Client[] = [
         cpf: "111.222.333-45",
         birthDate:"22/08/2021",
         balance : 1000,
-        debit: []
+        debit: [],
+        receivedTransfer:[],
+        transferSent:[]
     },
     {
         clientId: generateId(),
@@ -18,6 +20,9 @@ export const clients:Client[] = [
         cpf: "222.222.333-45",
         birthDate:"21/12/2000",
         balance :  0,
-        debit: []
-    }
+        debit: [],
+        receivedTransfer:[],
+        transferSent:[]
+    },
+    
 ] 
