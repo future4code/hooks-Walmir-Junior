@@ -1,0 +1,10 @@
+
+
+CREATE TABLE Emplooeyes(
+id VARCHAR(3),
+name VARCHAR(30),
+email VARCHAR(100) NOT NULL,
+PRIMARY KEY(id) 
+);
+
+
