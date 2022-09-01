@@ -1,0 +1,4 @@
+ALTER TABLE Emplooeyes
+MODIFY email VARCHAR(100) UNIQUE;
+
+DESCRIBE Emplooeyes;
