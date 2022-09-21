@@ -1,0 +1,5 @@
+//Para requisições com body:
+//Content-Type: application/json
+
+//Para requisições com headers
+//Authorization: "token
