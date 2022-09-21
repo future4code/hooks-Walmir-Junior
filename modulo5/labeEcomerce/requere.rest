@@ -1,0 +1,18 @@
+//Para requisições com body:
+//Content-Type: application/json
+
+//Para requisições com headers
+//Authorization: "token
+
+###
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Alatep",
+    "email": "alatep@labenu.com",
+    "password": "21325465"
+}
+
+###
+GET http://localhost:3003/users 
