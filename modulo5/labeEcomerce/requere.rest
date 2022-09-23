@@ -9,10 +9,36 @@ POST http://localhost:3003/users
 Content-Type: application/json
 
 {
-    "name": "Alatep",
-    "email": "alatep@labenu.com",
-    "password": "21325465"
+    "name": "luan",
+    "email": "luan@labenu.com",
+    "password": "luan123"
 }
 
 ###
 GET http://localhost:3003/users 
+
+###
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "produto6",
+    "price": 43,
+    "image_url": "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+}
+
+###
+GET http://localhost:3003/products
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "user_id": "001",
+    "product_id": "001",
+    "quantity": 2
+}
+
+###
+GET http://localhost:3003/purchases

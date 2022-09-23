@@ -1,9 +1,9 @@
 import { v4 as generateId } from "uuid";
 import { Request, Response } from "express";
 import connection from "./connection";
-import { User } from "./types";
+import { Product, Purchase, Tables, User } from "./types";
 
-const bancoDeDados = "Labecomerce_users"
+
 
 let statusCode = 400;
 
@@ -20,36 +20,149 @@ export const createUSer = async (req: Request, res: Response) => {
             throw new Error("passe todos os parâmetros");
         }
 
-        const newUser:User = {
+        const newUser: User = {
             id: generateId(),
             name,
             email,
             password
         }
 
-     await connection.raw(`
-        INSERT INTO ${bancoDeDados} (id, name, email, password)
+        await connection.raw(`
+        INSERT INTO ${Tables.USERS} (id, name, email, password)
         VALUES ("${newUser.id}", "${newUser.name}", "${newUser.email}", "${newUser.password}");
      `)
 
-     res.status(200).send("Usuário adicionado com sucesso!")
+        res.status(200).send("Usuário adicionado com sucesso!")
 
     } catch (error: any) {
         res.status(statusCode).send(error.message)
     }
 }
 
-export const getUsers = async (req:Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response) => {
 
     try {
 
         const result = await connection.raw(`
-            SELECT * FROM ${bancoDeDados};
+            SELECT * FROM ${Tables.USERS};
         `);
 
         res.status(200).send(result[0]);
 
-    } catch (error:any) {
+    } catch (error: any) {
+        res.status(statusCode).send(error.message)
+    }
+}
+
+export const addProduct = async (req: Request, res: Response) => {
+    const { name, price, image_url } = req.body;
+
+    try {
+
+        if (!name || !price || !image_url) {
+            statusCode = 422;
+            throw new Error("parâmetros faltando")
+        }
+
+        const newProduct: Product = {
+            id: generateId(),
+            name,
+            price,
+            image_url
+        }
+
+        await connection.raw(`
+            INSERT INTO ${Tables.PRODUCT} (id, name, price, image_url)
+            VALUES("${newProduct.id}", "${newProduct.name}", ${newProduct.price}, "${newProduct.image_url}");
+        `)
+
+        res.status(200).send("cadastrado com sucesso")
+
+    } catch (error: any) {
+        res.status(statusCode).send(error.message)
+    }
+}
+
+export const getProducts = async (req: Request, res: Response) => {
+
+    try {
+
+        const result = await connection.raw(`
+            SELECT * FROM ${Tables.PRODUCT};
+        `);
+
+        res.status(200).send(result[0]);
+
+    } catch (error: any) {
+        res.status(statusCode).send(error.message)
+    }
+}
+
+export const addPurchase = async (req: Request, res: Response) => {
+
+    const { user_id, product_id, quantity } = req.body;
+
+    try {
+        if (!user_id || !product_id || !quantity) {
+            statusCode = 422;
+            throw new Error("parâmetros faltando");
+        }
+
+        const user = await connection.raw(`
+
+            SELECT * FROM ${Tables.USERS} AS u
+            WHERE u.id = "${user_id}"
+        `)
+
+        if (!user) {
+            statusCode = 404;
+            throw new Error("produto não encontrado");
+        }
+
+        const productPrice = await connection.raw(`
+            SELECT p.price FROM ${Tables.PRODUCT} AS p
+            WHERE p.id = "${product_id}"
+        `)
+
+        console.log(productPrice)
+
+        if (!productPrice) {
+            statusCode = 404;
+            throw new Error("produto não encontrado");
+        }
+
+        const newPurchase: Purchase = {
+
+            id: generateId(),
+            user_id,
+            product_id,
+            quantity,
+            total_price: productPrice 
+        }
+
+        await connection.raw(`
+        INSERT INTO ${Tables.PURCHASES} (id, user_id, product_id, quantity, total_price)
+        VALUES("${newPurchase.id}", "${newPurchase.user_id}", "${newPurchase.product_id}", ${newPurchase.quantity}, ${newPurchase.total_price});
+    `)
+
+        res.send("compra realizada")
+
+    } catch (error: any) {
+        res.status(statusCode).send(error.message);
+    }
+}
+
+export const getPurchases = async (req: Request, res: Response) => {
+
+    try {
+
+        const result = await connection.raw(`
+            SELECT * FROM ${Tables.PURCHASES};
+        `);
+
+        res.status(200).send(result[0]);
+
+    } catch (error: any) {
         res.status(statusCode).send(error.message)
     }
 }

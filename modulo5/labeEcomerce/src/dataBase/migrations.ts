@@ -1,19 +1,23 @@
 import connection from "./connection";
+import { Tables } from "./types";
 
 const criarTabelaProdutos = async () => {
     try {
         await connection.raw(`
-            CREATE TABLE IF NOT EXISTS Labecomerce_users  (
+            CREATE TABLE IF NOT EXISTS labecommerce_purchases (
             id VARCHAR(255) PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            email VARCHAR(100) NOT NULL,
-            password VARCHAR(255) NOT NULL
+            user_id VARCHAR(255),
+            product_id VARCHAR(255),
+            quantity INT NOT NULL,
+            total_price DECIMAL(10,2) NOT NULL,
+            FOREIGN KEY ( user_id) REFERENCES ${Tables.USERS}(id),
+            FOREIGN KEY ( product_id) REFERENCES ${Tables.PRODUCT}(id)
             );
         `)
 
-        console.log("Tabela Labecomerce_users criada com sucesso.")
+        console.log("Tabela criada com sucesso.")
     } catch (error:any) {
-        console.log("Erro ao criar tabela Labecomerce_users.")
+        console.log("Erro ao criar tabela.")
         console.log(error.sqlMessage)
     }
 }
@@ -21,13 +25,13 @@ const criarTabelaProdutos = async () => {
 async function popularTabela() {
     try {
         await connection.raw(`
-            INSERT INTO Labecomerce_users (id,name, email, password)
+            INSERT INTO labecommerce_products (id,name, price, image_url)
             VALUES 
-            ("001", "walmir", "walmir@labenu.com", "12345678"),
-            ("002", "Daiane", "Daiane@labenu.com", "87654321"),
-            ("003", "Pétala", "petala@labenu.com", "220821"),
-            ("004","Thaynara", "thaynara@labenu.com","21122000"),
-            ("005", "Jessica", "jesseica@labenu.com", "140522");
+            ("001", "produto1", 59, "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"),
+            ("002", "produto2", 86, "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"),
+            ("003", "produto3", 4, "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"),
+            ("004","produto4", 32,"https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"),
+            ("005", "produto5", 92, "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ");
         `)
 
         console.log("Tabela populada com sucesso.")
@@ -38,5 +42,5 @@ async function popularTabela() {
 }
 
 criarTabelaProdutos()
-.then(() => popularTabela())
+// .then(() => popularTabela())
 .finally(() => process.exit())
