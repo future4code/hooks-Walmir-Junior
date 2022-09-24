@@ -9,7 +9,7 @@ let statusCode = 400;
 
 
 
-
+// Adicionar usuario
 export const createUSer = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
 
@@ -39,6 +39,7 @@ export const createUSer = async (req: Request, res: Response) => {
     }
 }
 
+// pegar lista de usuarios
 export const getUsers = async (req: Request, res: Response) => {
 
     try {
@@ -54,6 +55,7 @@ export const getUsers = async (req: Request, res: Response) => {
     }
 }
 
+// adicionar produtos
 export const addProduct = async (req: Request, res: Response) => {
     const { name, price, image_url } = req.body;
 
@@ -83,6 +85,7 @@ export const addProduct = async (req: Request, res: Response) => {
     }
 }
 
+// pegar lista de produtos
 export const getProducts = async (req: Request, res: Response) => {
 
     try {
@@ -98,6 +101,8 @@ export const getProducts = async (req: Request, res: Response) => {
     }
 }
 
+
+// Adicionar contas
 export const addPurchase = async (req: Request, res: Response) => {
 
     const { user_id, product_id, quantity } = req.body;
@@ -123,6 +128,8 @@ export const addPurchase = async (req: Request, res: Response) => {
             SELECT p.price FROM ${Tables.PRODUCT} AS p
             WHERE p.id = "${product_id}"
         `)
+         
+        const price = productPrice[0][0].price
 
         console.log(productPrice)
 
@@ -137,7 +144,7 @@ export const addPurchase = async (req: Request, res: Response) => {
             user_id,
             product_id,
             quantity,
-            total_price: productPrice 
+            total_price: price * quantity
         }
 
         await connection.raw(`
@@ -163,6 +170,27 @@ export const getPurchases = async (req: Request, res: Response) => {
         res.status(200).send(result[0]);
 
     } catch (error: any) {
+        res.status(statusCode).send(error.message)
+    }
+}
+
+export const getUseresPurchase = async (req: Request, res: Response) => {
+        const user_id = req.params;
+    try {
+
+        if(!user_id){
+            statusCode = 422;
+            throw new Error("não passou user_id");
+        }
+
+        const userPurchase = await connection.raw(`
+            SELECT * FROM ${Tables.PURCHASES} AS p
+            JOIN ${Tables.USERS} AS u
+            ON p.user_id = "${user_id}"
+        `)
+        
+        res.send(userPurchase[0])
+    } catch (error:any) {
         res.status(statusCode).send(error.message)
     }
 }
