@@ -1,5 +1,5 @@
 {
-  "name": "template-revisao-modulo4",
+  "name": "shopper-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "migrations": "tsc && node ./build/database/migrations.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Walmir",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.12",
